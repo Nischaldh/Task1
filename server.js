@@ -1,10 +1,12 @@
 import koa from "koa";
-import Router from "koa-router"
 import bodyParser from "koa-bodyparser";
 import logger from "./middleware/logger.js";
 import errorHandler from "./middleware/errorHandler.js";
 import studentRouter from "./router/students.router.js";
 import { notFound } from "./middleware/notFound.js";
+import { env } from "./lib/env.js";
+
+const PORT = env.PORT;
 
 const app = new koa();
 
@@ -22,6 +24,6 @@ app.use(studentRouter.allowedMethods());
 app.use(notFound)
 
 
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
     console.log("server started");
 });

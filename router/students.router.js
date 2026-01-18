@@ -4,16 +4,16 @@ import { deleteStudent, editStudent, getAllStudents, getStudent, postStudent } f
 
 const studentRouter = new Router({ prefix: "/students" });
 
-studentRouter.get("/getAllStudents",getAllStudents);
+studentRouter.get("/",getAllStudents);
 
-studentRouter.get("/get/:id",getStudent);
+studentRouter.get("/:id",getStudent);
 
-studentRouter.post("/postStudent",postStudent);
+studentRouter.post("/",postStudent);
 
 
-studentRouter.put("/editStudent/:id",editStudent);
+studentRouter.put("/:id",editStudent);
 
-studentRouter.delete("/delete/:id",deleteStudent)
+studentRouter.delete("/:id",deleteStudent)
 
 
 export default studentRouter;
