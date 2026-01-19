@@ -1,4 +1,5 @@
 import koa from "koa";
+import cors from "@koa/cors";
 import bodyParser from "koa-bodyparser";
 import logger from "./middleware/logger.js";
 import errorHandler from "./middleware/errorHandler.js";
@@ -9,6 +10,7 @@ import { env } from "./lib/env.js";
 const PORT = env.PORT;
 
 const app = new koa();
+app.use(cors())
 
 app.use(bodyParser());
 
