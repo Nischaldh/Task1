@@ -10,7 +10,9 @@ import { env } from "./lib/env.js";
 const PORT = env.PORT;
 
 const app = new koa();
-app.use(cors())
+app.use(cors({
+    origin:env.FRONTEND_URL
+}))
 
 app.use(bodyParser());
 

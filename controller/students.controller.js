@@ -4,7 +4,7 @@ import unqiueId from "../lib/generateUniqueId.js";
 export const postStudent = async (ctx) => {
   const { name, rollNo, marks, gender } = ctx.request.body;
 
-  if (!name || !rollNo || !marks | !gender) {
+  if (!name || !rollNo || marks===undefined || !gender) {
     ctx.throw(400, "Please provide all the values.");
   }
   const id = unqiueId();
